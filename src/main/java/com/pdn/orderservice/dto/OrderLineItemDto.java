@@ -13,7 +13,7 @@ import static com.pdn.orderservice.util.Constants.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class OrderLineItemsDto {
+public class OrderLineItemDto {
     @NotNull(message = SKUCODE_MUST_NOT_BE_EMPTY)
     @NotBlank(message = SKUCODE_MUST_NOT_BE_EMPTY)
     private String skuCode;

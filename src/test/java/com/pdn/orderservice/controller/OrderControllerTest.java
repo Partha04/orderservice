@@ -38,7 +38,7 @@ class OrderControllerTest {
 
     @Test
     void shouldGiveStatusOkWhenOrderIsPlaced() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.singletonList(orderLineItemsDto));
+        orderRequest.setOrderLineItemDtoList(Collections.singletonList(orderLineItemDto));
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
         requestBuilder.content(objectMapper.writeValueAsString(orderRequest));
@@ -49,7 +49,7 @@ class OrderControllerTest {
 
     @Test
     void shouldBeAbleToPlaceAOrderByInvokingOrderService() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.singletonList(orderLineItemsDto));
+        orderRequest.setOrderLineItemDtoList(Collections.singletonList(orderLineItemDto));
         Mockito.when(orderService.placeOrder(orderRequest)).thenReturn(orderResponse);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
@@ -65,7 +65,7 @@ class OrderControllerTest {
 
     @Test
     void shouldGiveErrorWhenOrderRequestDoesNotHaveAnyLineItems() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.emptyList());
+        orderRequest.setOrderLineItemDtoList(Collections.emptyList());
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
         requestBuilder.content(objectMapper.writeValueAsString(orderRequest));
@@ -77,7 +77,7 @@ class OrderControllerTest {
     }
     @Test
     void shouldGiveErrorWhenOrderRequestDoesNotHaveSkuCode() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.singletonList(orderLineItemsDtoWithoutSkuCode));
+        orderRequest.setOrderLineItemDtoList(Collections.singletonList(orderLineItemDtoWithoutSkuCode));
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
         requestBuilder.content(objectMapper.writeValueAsString(orderRequest));
@@ -90,7 +90,7 @@ class OrderControllerTest {
 
     @Test
     void shouldGiveErrorWhenOrderRequestDoesNotHavePrice() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.singletonList(orderLineItemsDtoWithoutPrice));
+        orderRequest.setOrderLineItemDtoList(Collections.singletonList(orderLineItemDtoWithoutPrice));
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
         requestBuilder.content(objectMapper.writeValueAsString(orderRequest));
@@ -102,7 +102,7 @@ class OrderControllerTest {
 
     @Test
     void shouldGiveErrorWhenOrderRequestDoesNotHaveQuantity() throws Exception {
-        orderRequest.setOrderLineItemsDtoList(Collections.singletonList(orderLineItemsDtoWithoutQuantity));
+        orderRequest.setOrderLineItemDtoList(Collections.singletonList(orderLineItemDtoWithoutQuantity));
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/placeOrder");
         requestBuilder.contentType(MediaType.APPLICATION_JSON);
         requestBuilder.content(objectMapper.writeValueAsString(orderRequest));

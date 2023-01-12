@@ -1,6 +1,6 @@
 package com.pdn.orderservice.testutills;
 
-import com.pdn.orderservice.dto.OrderLineItemsDto;
+import com.pdn.orderservice.dto.OrderLineItemDto;
 import com.pdn.orderservice.dto.OrderRequest;
 import com.pdn.orderservice.dto.OrderResponse;
 
@@ -8,37 +8,37 @@ import java.math.BigDecimal;
 
 public class TestData {
     public static OrderRequest orderRequest;
-    public static OrderLineItemsDto orderLineItemsDto;
-    public static OrderLineItemsDto orderLineItemsDtoWithoutSkuCode;
-    public static OrderLineItemsDto orderLineItemsDtoWithoutPrice;
-    public static OrderLineItemsDto orderLineItemsDtoWithoutQuantity;
+    public static OrderLineItemDto orderLineItemDto;
+    public static OrderLineItemDto orderLineItemDtoWithoutSkuCode;
+    public static OrderLineItemDto orderLineItemDtoWithoutPrice;
+    public static OrderLineItemDto orderLineItemDtoWithoutQuantity;
     public static OrderResponse orderResponse;
-    public static BigDecimal ten;
+    public static BigDecimal price;
     public static int quantity;
     public static String skuCode;
 
     static {
-        ten = BigDecimal.TEN;
+        price = BigDecimal.TEN;
         quantity = 12;
         skuCode = "sku1234";
         orderRequest = new OrderRequest();
 
-        orderLineItemsDto = new OrderLineItemsDto();
-        orderLineItemsDto.setPrice(ten);
-        orderLineItemsDto.setQuantity(quantity);
-        orderLineItemsDto.setSkuCode(skuCode);
+        orderLineItemDto = new OrderLineItemDto();
+        orderLineItemDto.setPrice(price);
+        orderLineItemDto.setQuantity(quantity);
+        orderLineItemDto.setSkuCode(skuCode);
 
-        orderLineItemsDtoWithoutSkuCode = new OrderLineItemsDto();
-        orderLineItemsDtoWithoutSkuCode.setQuantity(quantity);
-        orderLineItemsDtoWithoutSkuCode.setPrice(ten);
+        orderLineItemDtoWithoutSkuCode = new OrderLineItemDto();
+        orderLineItemDtoWithoutSkuCode.setQuantity(quantity);
+        orderLineItemDtoWithoutSkuCode.setPrice(price);
 
-        orderLineItemsDtoWithoutPrice = new OrderLineItemsDto();
-        orderLineItemsDtoWithoutPrice.setSkuCode(skuCode);
-        orderLineItemsDtoWithoutPrice.setQuantity(quantity);
+        orderLineItemDtoWithoutPrice = new OrderLineItemDto();
+        orderLineItemDtoWithoutPrice.setSkuCode(skuCode);
+        orderLineItemDtoWithoutPrice.setQuantity(quantity);
 
-        orderLineItemsDtoWithoutQuantity = new OrderLineItemsDto();
-        orderLineItemsDtoWithoutQuantity.setSkuCode(skuCode);
-        orderLineItemsDtoWithoutQuantity.setPrice(ten);
+        orderLineItemDtoWithoutQuantity = new OrderLineItemDto();
+        orderLineItemDtoWithoutQuantity.setSkuCode(skuCode);
+        orderLineItemDtoWithoutQuantity.setPrice(price);
 
 
         orderResponse = new OrderResponse();

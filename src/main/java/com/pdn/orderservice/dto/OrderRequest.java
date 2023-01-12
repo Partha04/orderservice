@@ -16,6 +16,6 @@ import static com.pdn.orderservice.util.Constants.LIST_MUST_NOT_BE_EMPTY;
 public class OrderRequest {
     @Valid
     @NotEmpty(message = LIST_MUST_NOT_BE_EMPTY)
-    private List<OrderLineItemsDto> orderLineItemsDtoList;
+    private List<OrderLineItemDto> orderLineItemDtoList;
 }
 
