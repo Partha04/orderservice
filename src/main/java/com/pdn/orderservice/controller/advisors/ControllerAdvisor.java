@@ -1,4 +1,4 @@
-package com.pdn.orderservice.controller;
+package com.pdn.orderservice.controller.advisors;
 
 
 import com.pdn.orderservice.dto.ErrorResponse;

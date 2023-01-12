@@ -1,17 +1,24 @@
 package com.pdn.orderservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.math.BigDecimal;
+
+import static com.pdn.orderservice.util.Constants.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class OrderLineItemsDto {
-    private Long id;
+    @NotNull(message = SKUCODE_MUST_NOT_BE_EMPTY)
+    @NotBlank(message = SKUCODE_MUST_NOT_BE_EMPTY)
     private String skuCode;
+    @NotNull(message = PRICE_MUST_NOT_BE_EMPTY)
     private BigDecimal price;
+    @NotNull(message = QUNATITY_MUST_NOT_BE_EMPTY)
     private Integer quantity;
 }
